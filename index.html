@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Zasięgu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 10px;
+        }
+        th {
+            background-color: #f1f1f1;
+        }
+        input {
+            width: 100%;
+            border: none;
+            text-align: center;
+            outline: none;
+            padding: 5px;
+        }
+        input:focus {
+            background-color: #e0f7fa;
+        }
+        input[readonly] {
+            background-color: #f9f9f9;
+            cursor: not-allowed;
+        }
+        .header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap; /* Elastyczne rozmieszczenie elementów */
+        }
+        .table-container {
+            flex: 1;
+            min-width: 300px; /* Minimalna szerokość tabeli */
+        }
+        /* Media Queries dla małych ekranów */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Układ pionowy na małych ekranach */
+            }
+            table {
+                font-size: 14px; /* Zmniejszenie czcionki na małych ekranach */
+            }
+            th, td {
+                padding: 5px; /* Zmniejszenie odstępów w komórkach */
+            }
+            button {
+                width: 100%; /* Przycisk na pełną szerokość */
+                font-size: 16px; /* Zwiększenie czytelności */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Kalkulator Zasięgu</h1>
+    <div class="header">Poniżej wpisać staty Z TRONOWEJ: (myśliwy5 jest doliczony po wpisaniu lvla)</div>
+
+    <div class="container">
+        <!-- Tabela parametrów -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parametr</th>
+                        <th>Wartość</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Level</td>
+                        <td><input type="number" id="level" placeholder="Wprowadź poziom"></td>
+                    </tr>
+                    <tr>
+                        <td>Spost</td>
+                        <td><input type="number" id="spost" placeholder="Wprowadź Spost"></td>
+                    </tr>
+                    <tr>
+                        <td>Zwinka</td>
+                        <td><input type="number" id="zwinka" placeholder="Wprowadź Zwinka"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tabela bonusów -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bonus</th>
+                        <th>Bonus w %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="number" id="bonus" placeholder="Bonus"></td>
+                        <td><input type="number" id="bonusPercent" value="0" placeholder="Bonus w %" step="0.01"></td>
+                    </tr>
+                </tbody>        
+            </table>
+        </div>
+
+        <!-- Tabela Evo -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Evo Spost</th>
+                        <th>Evo Zwinka</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="evolutionSpost">Poziom ewolucji Spost</label>
+                            <select id="evolutionSpost">
+                                <option value="" disabled selected>Wybierz poziom</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for="evolutionZwinka">Poziom ewolucji Zwinka</label>
+                            <select id="evolutionZwinka">
+                                <option value="" disabled selected>Wybierz poziom</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>        
+            </table>
+        </div>
+    </div>
+
+    <div class="header">Broń:</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Typ</th>
+                <th>Wartość</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Palna</td>
+                <td><input type="number" id="palna" placeholder="Wynik" readonly></td>
+            </tr>
+            <tr>
+                <td>Biała</td>
+                <td><input type="number" id="biala" placeholder="Wynik" readonly></td>
+            </tr>
+            <tr>
+                <td>Dystans</td>
+                <td><input type="number" id="dystans" placeholder="Wynik" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button onclick="calculate()">Oblicz</button>
+    <div id="results" style="margin-top: 20px; font-weight: bold;"></div>
+
+    <script>
+        function calculate() {
+        // Pobranie danych
+        const level = parseFloat(document.getElementById('level').value) || 0;
+        const spost = parseFloat(document.getElementById('spost').value) || 0;
+        const zwinka = parseFloat(document.getElementById('zwinka').value) || 0;
+
+        const bonusPercent = parseFloat(document.getElementById('bonusPercent').value) || 0;
+        const bonus = parseFloat(document.getElementById('bonus').value) || 0;
+
+        const evolutionSpost = parseInt(document.getElementById('evolutionSpost').value) || 0;
+        const evolutionZwinka = parseInt(document.getElementById('evolutionZwinka').value) || 0;
+
+        // Obliczenie mnożnika dla evolutionSpost
+        let evolutionSpostMultiplier = 0;
+        if (evolutionSpost >= 1 && evolutionSpost <= 10) {
+            evolutionSpostMultiplier = evolutionSpost * 4;
+        } else if (evolutionSpost >= 11 && evolutionSpost <= 15) {
+            evolutionSpostMultiplier = (evolutionSpost * 4) + (evolutionSpost - 10) * 4; // Example for Spost logic
+        }
+
+        // Obliczenie mnożnika dla evolutionZwinka
+        let evolutionZwinkaMultiplier = 0;
+        if (evolutionZwinka >= 1 && evolutionZwinka <= 10) {
+            evolutionZwinkaMultiplier = evolutionZwinka * 5;
+        } else if (evolutionZwinka === 11) {
+            evolutionZwinkaMultiplier = 60;
+        } else if (evolutionZwinka === 12) {
+            evolutionZwinkaMultiplier = 70;
+        } else if (evolutionZwinka === 13) {
+            evolutionZwinkaMultiplier = 80;
+        } else if (evolutionZwinka === 14) {
+            evolutionZwinkaMultiplier = 90;
+        } else if (evolutionZwinka === 15) {
+            evolutionZwinkaMultiplier = 100;
+        }
+
+        // Obliczenia
+        const bonusLevel = level / 10;
+        const totalPalna = ((bonus / 2) + spost + evolutionSpostMultiplier + bonusLevel) * (1 + (bonusPercent / 100));
+        const totalBiala = ((bonus / 2) + zwinka + evolutionZwinkaMultiplier + bonusLevel) * (1 + (bonusPercent / 100));
+        const totalDystans = ((bonus / 2) + (bonusLevel * 2) + spost + evolutionSpostMultiplier + zwinka + evolutionZwinkaMultiplier)*(1 + (bonusPercent / 100));
+
+        // Wyświetlanie wyników
+        document.getElementById('palna').value = totalPalna.toFixed(2);
+        document.getElementById('biala').value = totalBiala.toFixed(2);
+        document.getElementById('dystans').value = totalDystans.toFixed(2);
+    }
+    </script>
+</body>
+</html>
